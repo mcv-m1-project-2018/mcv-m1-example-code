@@ -16,7 +16,7 @@ def candidate_generation_pixel_normrgb(im):
     
     # Develop your method here:
     # Example:
-    pixel_candidates = normrgb_im[:,:,1]>100;
+    pixel_candidates = normrgb_im[:,:,0]>100;
 
     return pixel_candidates
  
@@ -26,10 +26,10 @@ def candidate_generation_pixel_hsv(im):
     
     # Develop your method here:
     # Example:
-    pixel_candidates = hsv_im[:,:,1] > 0.4;
+    pixel_candidates = hsv_im[:,:,0] > 0.4;
 
     return pixel_candidates
- 
+
 # Create your own candidate_generation_pixel_xxx functions for other color spaces/methods
 # Add them to the switcher dictionary in the switch_color_space() function
 # These functions should take an image as input and output the pixel_candidates mask image

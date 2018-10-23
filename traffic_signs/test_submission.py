@@ -75,8 +75,10 @@ if __name__ == '__main__':
             # Read mask file
             candidate_masks_name = '{}/{}/{}'.format(results_dir, method, result_files[ii])
             print ('File: {}'.format(candidate_masks_name), file = sys.stderr)
-        
+
             pixelCandidates = imageio.imread(candidate_masks_name)>0
+            if len(pixelCandidates.shape) == 3:
+                pixelCandidates = pixelCandidates[:,:,0]
             
             # Accumulate pixel performance of the current image %%%%%%%%%%%%%%%%%
             name, ext = os.path.splitext(test_files[ii])
@@ -118,5 +120,7 @@ if __name__ == '__main__':
         if window_evaluation == 1:
             [windowPrecision, windowSensitivity, windowAccuracy] = evalf.performance_evaluation_window(windowTP, windowFN, windowFP) # (Needed after Week 3)
             windowF1 = 0
+            if (windowPrecision + windowSensitivity) != 0:
+                windowF1 = 2*((windowPrecision*windowSensitivity)/(windowPrecision + windowSensitivity))
 
             print ('Team {:02d} window, method {} : {:.2f}, {:.2f}, {:.2f}\n'.format(team, method, windowPrecision, windowSensitivity, windowF1)) 
