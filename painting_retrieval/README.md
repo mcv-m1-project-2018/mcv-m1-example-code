@@ -17,11 +17,11 @@ DATA FILES:
 
   Python 3.6.2 (default, Mar 13 2018, 08:54:27)
 
-  &gt;&gt;&gt id = 76
+  &gt;&gt;&gt; id = 76
 
-  &gt;&gt;&gt str = '{:06d}.jpg'.format(id)
+  &gt;&gt;&gt; str = '{:06d}.jpg'.format(id)
 
-  &gt;&gt;&gt print (str)
+  &gt;&gt;&gt; print (str)
 
   000076.jpg
 
